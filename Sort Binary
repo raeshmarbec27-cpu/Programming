@@ -1,5 +1,8 @@
-#include <stdio.h>
+//Write a program to sort an array containing only 0's and 1's in random order.
+Input : 1 0 1 1 0 1 0 1 0 0 0 1 0 1
 
+
+#include <stdio.h>
 int main() {
     int a[50], n, temp;
     scanf("%d", &n);
