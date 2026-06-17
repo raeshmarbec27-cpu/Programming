@@ -8,25 +8,26 @@ Explanation : Odd positions are 4 and 6 as they are pos: 1 and pos: 3, both have
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+int get_digit_difference(const char *num) {
+    int odd_sum = 0;
+    int even_sum = 0;
+    for (int i = 0; num[i] != '\0'; i++) {
+        int digit = num[i] - '0'; 
+        if (i % 2 == 0) {
+            odd_sum += digit;
+        } else {
+            even_sum += digit;
+        }
+    }
+    return abs(even_sum - odd_sum);
+}
 
 int main() {
     char num[100];
-    int oddsum = 0;
-    int evensum = 0;
-    if (scanf("%101s", num) != 1) {
-        return 1;
+    if (scanf("%99s", num) == 1) {
+        int difference = get_digit_difference(num);
+        printf("%d\n", difference);
     }
-    for (int i = 0; num[i] != '\0'; i++) {
-        int digit = num[i] - '0';
-        if (i % 2 == 0) {
-            oddsum += digit;
-        } else {
-            evensum += digit;
-        }
-    }
-    int difference = abs(evensum - oddsum);
-    printf("%d\n", difference);
 
     return 0;
 }
-
