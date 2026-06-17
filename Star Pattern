@@ -1,3 +1,9 @@
+//Write a program to print below pattern.
+*
+**
+***
+****
+
 #include<stdio.h>
 int main(){
     int r,i,j;
