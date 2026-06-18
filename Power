@@ -1,0 +1,41 @@
+//Given a positive number N, we have to find whether N can be converted to the form KK where K is
+also a positive integer, using the following operation any number of times :
+Choose any digit less than the current value of N, say d.
+K^k = N – d^2, change d each time
+If it is possible to express the number in the required form then print “Yes” otherwise print “No”.
+Example:
+Input: N = 13
+Output: Yes
+Explanation:
+For integer 13 choose d = 3 : 13 – 3^2 = 4, 4 is of the form 2^2. Hence, the output is 4.
+Input: N = 90
+Output: No
+Explanation:
+It is not possible to express the number 90 in required form
+
+
+#include<stdio.h>
+#include<math.h>
+int main(){
+    int n,lhs,res,c=0;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++){
+        if((i*i)<n){
+            res=n-(i*i);
+            for(int j=res;j>1;j--){
+                lhs=pow(j,j);
+                if(lhs==res){
+                    printf("Yes");
+                    c++;
+                }
+                else continue;
+            }
+        }
+    }
+    if(c==0){
+        printf("No");
+    }
+    else{
+        return 0;
+    }
+}
