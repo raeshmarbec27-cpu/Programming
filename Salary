@@ -1,0 +1,22 @@
+//Create a Java class with static methods to calculate gross salary, deductions, and net salary. Call these methods without creating an object.
+Sample Input
+Basic Salary = 30000
+Allowance = 5000
+Deduction = 2000
+Sample Output
+Gross Salary = 35000
+Net Salary = 33000
+
+
+import java.util.*;
+public class Program{
+    public static void main(String args[]){
+        Scanner Z=new Scanner(System.in);
+        int basic=Z.nextInt();
+        int Allow=Z.nextInt();
+        int Deduction=Z.nextInt();
+        int tot=0;
+        tot=basic+Allow-Deduction;
+        System.out.println("Total Salary:"+tot);
+    }
+}
