@@ -1,0 +1,49 @@
+//Write a Java program to find the longest palindrome word present in a given sentence.
+Sample Input
+madam speaks malayalam in civic center
+Sample Output
+Longest Palindrome Word: malayalam
+Length: 9
+
+import java.util.*;
+public class Main {
+    public static boolean isPalindrome(String word) {
+        word = word.toLowerCase();
+        int left = 0;
+        int right = word.length() - 1;
+        while (left < right) {
+            if (word.charAt(left) != word.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String sentence = scanner.nextLine();
+        String[] words = sentence.split("\\s+");
+        String longestPalindrome = "";
+        int maxLength = 0;
+
+        for (String word : words) {
+            String cleanWord = word.replaceAll("[^a-zA-Z]", "");
+            if (isPalindrome(cleanWord)) {
+                if (cleanWord.length() > maxLength) {
+                    maxLength = cleanWord.length();
+                    longestPalindrome = cleanWord;
+                }
+            }
+        }
+
+        if (maxLength > 0) {
+            System.out.println("Longest Palindrome Word: " + longestPalindrome);
+            System.out.println("Length: " + maxLength);
+        } else {
+            System.out.println("No palindrome words found in the sentence.");
+        }
+        scanner.close();
+    }
+}
